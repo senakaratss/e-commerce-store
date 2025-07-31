@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { useProductStore } from "../stores/useProductStore";
 import { motion } from "framer-motion";
 import ProductCard from "../components/ProductCard";
-import LoadingSpinner from "../components/LoadingSpinner";
 const CategoryPage = () => {
   const { category } = useParams();
   const { fetchProductsByCategory, products, loading } = useProductStore();
@@ -24,7 +23,11 @@ const CategoryPage = () => {
           {category.charAt(0).toUpperCase() + category.slice(1)}
         </motion.h1>
         {loading ? (
-          <LoadingSpinner />
+          <div className="w-full text-center py-16">
+            <div className="text-emerald-400 text-2xl animate-pulse">
+              Loading...
+            </div>
+          </div>
         ) : (
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center"
