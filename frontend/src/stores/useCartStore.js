@@ -24,8 +24,6 @@ export const useCartStore = create((set, get) => ({
     set({ cart: [], coupon: null, total: 0, subtotal: 0 });
   },
   addToCart: async (product) => {
-    set({ loading: true });
-
     try {
       await axiosInstance.post("/cart", { productId: product._id });
       toast.success("Product added to cart");
@@ -46,8 +44,6 @@ export const useCartStore = create((set, get) => ({
       get().calculateTotals();
     } catch (error) {
       toast.error(error.response.data.message || "An error occurred");
-    } finally {
-      set({ loading: false });
     }
   },
   removeFromCart: async (productId) => {
