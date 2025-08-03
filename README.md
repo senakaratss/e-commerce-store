@@ -30,7 +30,7 @@ A modern full-stack e-commerce application where users can browse products, mana
 - MongoDB with Mongoose
 - JSON Web Token (JWT)
 - Cloudinary (image upload)
--Stripe (payment processing)
+- Stripe (payment processing)
 
 ## Installation
 1. Clone the repository  
